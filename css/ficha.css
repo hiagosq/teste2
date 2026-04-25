@@ -1,0 +1,318 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1e1e1e;
+  color: white;
+}
+
+/* CONTAINER CENTRAL */
+.container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px 20px;
+}
+
+/* MENU */
+.menu {
+  width: 100%;
+  max-width: 1100px;
+
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.menu button {
+  padding: 10px 14px;
+  border: none;
+  background: #444;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.menu button:hover {
+  background: #666;
+}
+
+/* ================= TABS ================= */
+
+/* padrão */
+.tab {
+  display: none;
+}
+
+/* abas normais (inventário/magias) */
+.tab.active {
+  display: block;
+  margin-left: 20%;
+  margin-top: 1%;
+}
+
+/* SOMENTE A FICHA USA GRID */
+#main.tab.active {
+  width: 100%;
+  max-width: 1100px;
+
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* ================= ESQUERDA ================= */
+
+.left-panel {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* IMAGEM */
+.char-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 25px auto;
+  border: 3px solid #555;
+}
+
+/* INPUTS */
+.left-panel input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1e1e1e;
+  color: white;
+}
+
+/* BARRAS */
+.bar-section {
+  margin-top: 25px;
+}
+
+.bar {
+  width: 100%;
+  height: 24px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+#hp-fill {
+  height: 100%;
+  background: linear-gradient(to right, #ff3b3b, #8b0000);
+  width: 0%;
+  transition: 0.3s;
+}
+
+#xp-fill {
+  height: 100%;
+  background: linear-gradient(to right, #00ff88, #007a3d);
+  width: 0%;
+  transition: 0.3s;
+}
+
+.bar-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-inputs input {
+  width: 70px;
+  padding: 6px;
+}
+
+/* DEFESA */
+.ac-box {
+  width: 95px;
+  height: 95px;
+  background: #333;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 25px;
+}
+
+.ac-box span {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.ac-box input {
+  width: 50px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+}
+
+/* ================= DIREITA ================= */
+
+.right-panel {
+  background: #2a2a2a;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  height: fit-content;
+}
+
+/* PERÍCIAS */
+.right-panel div {
+  display: grid;
+  grid-template-columns: 1fr 40px 60px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* ================= INVENTÁRIO / MAGIAS ================= */
+
+#inventory,
+#spells {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.spells-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.spells-header select {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+/* BOTÃO */
+.add-btn {
+  padding: 10px 14px;
+  background: linear-gradient(45deg, #4caf50, #2e7d32);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+}
+
+/* LISTAS */
+.spells-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CARDS */
+.spell-card,
+.inv-card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.spell-title,
+.inv-title {
+  padding: 14px;
+  background: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.spell-title:hover,
+.inv-title:hover {
+  background: #444;
+}
+
+.spell-body,
+.inv-body {
+  padding: 12px;
+  background: #252525;
+}
+
+/* TAG */
+.tag {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+/* CORES */
+.spell-card[data-tipo="truque"] .tag {
+  background: #2196f3;
+}
+
+.spell-card[data-tipo="magia"] .tag {
+  background: #9c27b0;
+}
+
+.inv-card[data-tipo="arma"] .tag {
+  background: #ff5722;
+}
+
+.inv-card[data-tipo="armadura"] .tag {
+  background: #607d8b;
+}
+
+.inv-card[data-tipo="item"] .tag {
+  background: #4caf50;
+}
+
+/* ESCONDER */
+.hidden {
+  display: none;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+
+  /* empilha no mobile */
+  #main.tab.active {
+    display: block;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .char-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .bar {
+    height: 20px;
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha RPG</title>
+  <link rel="stylesheet" href="css/ficha.css">
+</head>
+<body>
+
+<div id="main" class="tab active">
+
+  <div class="left-panel">
+
+    <img src="assets/miguel.png" class="char-img">
+
+    <div class="info">
+        <input id="char-name" placeholder="Nome">
+        <input id="char-race" placeholder="Raça">
+        <input id="char-class" placeholder="Classe">
+        <input id="char-subclass" placeholder="Subclasse">
+        <input id="char-origin" placeholder="Origem">
+    </div>
+
+    <!-- VIDA -->
+    <div class="bar-section">
+      <label>Vida</label>
+
+      <div class="bar">
+        <div id="hp-fill"></div>
+      </div>
+
+      <div class="bar-inputs">
+        <input id="hp-current" type="number" placeholder="Atual" oninput="updateHP()">
+        <span>/</span>
+        <input id="hp-max" type="number" placeholder="Máx" oninput="updateHP()">
+      </div>
+    </div>
+
+    <!-- XP -->
+    <div class="bar-section">
+      <label>XP</label>
+
+      <div class="bar">
+        <div id="xp-fill"></div>
+      </div>
+
+      <div class="bar-inputs">
+        <input id="xp-current" type="number" oninput="updateXP()">
+        <span>/</span>
+        <input id="xp-max" type="number" readonly>
+      </div>
+
+      <input id="level" type="number" value="1" oninput="updateXP()">
+    </div>
+
+    <!-- DEFESA -->
+    <div class="ac-box">
+      <span>CA</span>
+      <input id="ac" type="number" value="10">
+    </div>
+
+  </div>
+
+  <!-- ⚠️ IMPORTANTE: ESTE TEM QUE ESTAR AQUI, NO MESMO NÍVEL -->
+  <div class="right-panel" id="skills"></div>
+
+</div>
+  <!-- ================= INVENTÁRIO ================= -->
+
+  <div id="inventory" class="tab">
+
+  <div class="spells-header">
+    <h2>Inventário</h2>
+
+    <select id="item-filter" onchange="filterItems()">
+      <option value="all">Todos</option>
+      <option value="arma">Armas</option>
+      <option value="armadura">Armaduras</option>
+      <option value="item">Itens</option>
+    </select>
+
+    <button class="add-btn" onclick="addItem()">+ Novo</button>
+  </div>
+
+  <div id="inventory-list" class="spells-list"></div>
+
+</div>
+
+  <!-- ================= MAGIAS ================= -->
+
+  <div id="spells" class="tab">
+
+  <div class="spells-header">
+    <h2>Magias</h2>
+
+    <select id="spell-filter" onchange="filterSpells()">
+      <option value="all">Todas</option>
+      <option value="magia">Magias</option>
+      <option value="truque">Truques</option>
+    </select>
+
+    <button class="add-btn" onclick="addSpell()">+ Nova Magia</button>
+  </div>
+
+  <div id="spells-list" class="spells-list"></div>
+
+</div>
+
+<!-- JS -->
+
+<script src="js/storage.js"></script>
+<script src="js/ficha.js"></script>
+<script src="js/inventory.js"></script>
+<script src="js/spells.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/attributes.js"></script>
+<script src="js/autosave.js"></script>
+
+</body>
+</html>
